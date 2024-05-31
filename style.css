@@ -61,7 +61,7 @@ ul i {
 .box1 {
     width: 120px;
     height: 120px;
-    background-image: url(/assets/PS.png);
+    background-image: url(assets/PS.png);
     background-size: contain;
     background-repeat: no-repeat;
     border-radius: 27px;
@@ -70,7 +70,7 @@ ul i {
 .box2 {
     width: 120px;
     height: 120px;
-    background-image: url(/assets/AI.png);
+    background-image: url(assets/AI.png);
     background-size: contain;
     background-repeat: no-repeat;
     border-radius: 27px;
@@ -79,7 +79,7 @@ ul i {
 .box3 {
     width: 120px;
     height: 120px;
-    background-image: url(/assets/PR.png);
+    background-image: url(assets/PR.png);
     background-size: contain;
     background-repeat: no-repeat;
     border-radius: 27px;
@@ -88,7 +88,7 @@ ul i {
 .box4 {
     width: 120px;
     height: 120px;
-    background-image: url(/assetsAE.png);
+    background-image: url(assetsAE.png);
     background-size: contain;
     background-repeat: no-repeat;
     border-radius: 27px;
@@ -97,7 +97,7 @@ ul i {
 .box5 {
     width: 120px;
     height: 120px;
-    background-image: url(/assets/maya.png);
+    background-image: url(assets/maya.png);
     background-size: contain;
     background-repeat: no-repeat;
 }
@@ -105,7 +105,7 @@ ul i {
 .box6 {
     width: 120px;
     height: 120px;
-    background-image: url(/assets/3dsmax.png);
+    background-image: url(assets/3dsmax.png);
     background-size: contain;
     background-repeat: no-repeat;
 }
@@ -113,7 +113,7 @@ ul i {
 .box7 {
     width: 120px;
     height: 120px;
-    background-image: url(/assets/mixer.png);
+    background-image: url(assets/mixer.png);
     background-size: contain;
     background-repeat: no-repeat;
     border-radius: 27px;
@@ -122,7 +122,7 @@ ul i {
 .box8 {
     width: 120px;
     height: 120px;
-    background-image: url(/assets/html.png);
+    background-image: url(assets/html.png);
     background-size: contain;
     background-repeat: no-repeat;
 }
@@ -130,7 +130,7 @@ ul i {
 .box9 {
     width: 120px;
     height: 120px;
-    background-image: url(/assets/css.png);
+    background-image: url(assets/css.png);
     background-size: contain;
     background-repeat: no-repeat;
 }
@@ -138,7 +138,7 @@ ul i {
 .box10 {
     width: 120px;
     height: 120px;
-    background-image: url(/assets/figma.png);
+    background-image: url(assets/figma.png);
     background-size: contain;
     background-repeat: no-repeat;
 }
