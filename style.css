@@ -90,7 +90,7 @@ ul i {
     height: 120px;
     background-image: url(assets/aes.png);
     background-size: contain;
-    background-repeat: no-repeat;
+    
     border-radius: 27px;
 }
 
@@ -139,9 +139,9 @@ ul i {
     width: 120px;
     height: 120px;
     background-image: url(assets/figma.png);
-    border-radius: 27px;
     background-size: contain;
     background-repeat: no-repeat;
+    border-radius: 27px;
 }
 
 @media (max-width: 673px) {
