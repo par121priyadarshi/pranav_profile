@@ -139,6 +139,7 @@ ul i {
     width: 120px;
     height: 120px;
     background-image: url(assets/figma.png);
+    border-radius: 27px;
     background-size: contain;
     background-repeat: no-repeat;
 }
