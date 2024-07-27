@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Renders</title>
+    <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+            background-color: #ffffff;
+        }
+
+        .column {
+            height: 90%;
+            display: flex;
+        }
+        .left-column {
+            width: 70%;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background-color: #e9f2f6;
+            color: #fff;
+            padding: 10px;
+            box-sizing: border-box;
+            overflow-y: auto;
+            border-radius: 40px;
+            margin: 0px 20px 0px 20px;
+        }
+        .left-column img {
+            margin: 10px;
+            width: 80%;
+        }
+        .right-column {
+            width: 30%;
+            background-color: #e9f2f6;
+            padding: 10px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            box-sizing: border-box;
+            overflow-y: auto;
+            border-radius: 40px;
+            margin: 0px 20px 0px 20px;
+        }
+        .right-column img {
+            max-width: 80%;
+            height: auto;
+            margin: 10px;
+        }
+        .model-container {
+            height: 600px;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+        }
+        model-viewer {
+            height: 600px;
+            width: 80%;
+            background-color: beige;
+            align-self: center;
+        }
+
+        h2 {
+            font-size: 2.5vw;
+            color: #000000;
+            text-align: center;
+            margin-bottom: 40px;
+            font-family: Arial, sans-serif;
+        }
+
+        /* width */
+        ::-webkit-scrollbar {
+            width: 5px;
+        }
+
+        /* Track */
+        ::-webkit-scrollbar-track {
+            /* background: #f1f1f1; */
+        }
+
+        /* Handle */
+        ::-webkit-scrollbar-thumb {
+            /* background: #555; */
+            border-radius: 40px;
+            background-image: linear-gradient(to right, rgba(255,0,0,0), rgb(255, 255, 255));
+        }
+
+        /* Handle on hover */
+        ::-webkit-scrollbar-thumb:hover {
+            background: #888;
+        }
+    </style>
+</head>
+<body>
+    
+    <div class="column">
+        <div class="left-column" id="left-column">
+            <!-- Initial content of the first column -->
+            <img src="renders/shield render 7.jpg" alt="Image 1">
+            <img src="renders/render 3.jpg" alt="Image 2">
+            <img src="renders/wire 3.jpg" alt="Image 3">
+            <!-- <div class="model-container"><model-viewer id="model-viewer" src="/shieldhigh.glb" alt="A 3D model" auto-rotate camera-controls></model-viewer></div><br> -->
+            <img src="renders/render 4.jpg" alt="Image 4">
+            <img src="renders/wire 4.jpg" alt="Image 5">
+        </div>
+        <div class="right-column">
+            <img src="/renders/shield render 7.jpg" alt="Image A" onclick="updateColumn('A')">
+            <img src="/renders/render 1.jpg" alt="Image B" onclick="updateColumn('B')">
+            <img src="/tower/render1.jpg" alt="Image D" onclick="updateColumn('C')">
+            <img src="/renders/render 5.jpg" alt="Image C" onclick="updateColumn('D')">
+            <img src="/box/render1.jpg" alt="Image E" onclick="updateColumn('E')">
+            <img src="/table/table_1.jpg" alt="Image C" onclick="updateColumn('F')">
+        </div>
+    </div>
+    <script>
+        const imageSets = {
+            'A': [
+                '/renders/shield render 7.jpg',
+                '/renders/render 3.jpg',
+                '/shieldhigh.glb', // 3D model
+                '/renders/wire 3.jpg',
+                '/renders/render 4.jpg',
+                '/renders/wire 4.jpg',
+            ],
+            'B': [
+                '/renders/render 1.jpg',
+                '/shieldhigh.glb', // 3D model
+                '/renders/wire 1.jpg',
+                '/renders/render 2.jpg',
+                '/renders/wire 2.jpg',
+                
+            ],
+            'C': [
+                '/tower/render2.jpg',
+                '/tower/render3.jpg',
+                '/tower/watchtower.glb', // 3D model
+                '/tower/render4.jpg',
+                '/tower/render5.jpg',
+                '/tower/render6.jpg',
+                '/tower/render1.jpg'
+            ],
+            'D': [
+                '/renders/render 5.jpg',
+                '/shieldhigh.glb', // 3D model
+                '/renders/wire 5.jpg',
+                '/renders/render 6.jpg',
+                '/renders/wire 6.jpg',
+            ],
+            'E': [
+                '/box/render1.jpg',
+                '/box/render2.jpg',
+                '/box/box.glb', // 3D model
+                '/box/render3.jpg',
+                '/box/render4.jpg',
+                '/box/render5.jpg'
+            ],
+            'F': [
+                '/table/table_1.jpg',
+                '/table/table_2.jpg',
+                '/table/table_3.jpg',
+                '/table/table_4.jpg'
+               
+            ]
+        };
+
+        const headings = {
+            'A': 'Stylized Shield',
+            'B': 'Stylized House',
+            'C': 'Watch Tower',
+            'D': 'Wooden Boat',
+            'E': 'Stylized Chest',
+            'F': 'Office Table'
+        };
+
+        function updateColumn(set) {
+            const leftColumn = document.getElementById('left-column');
+            leftColumn.innerHTML = '';
+
+            const heading = document.createElement('h2');
+            heading.textContent = headings[set];
+            leftColumn.appendChild(heading);
+            
+            imageSets[set].forEach(src => {
+                if (src.endsWith('.glb')) {
+                    const modelViewer = document.createElement('model-viewer');
+                    modelViewer.setAttribute('src', src);
+                    modelViewer.setAttribute('alt', 'A 3D model');
+                    modelViewer.setAttribute('auto-rotate', '');
+                    modelViewer.setAttribute('camera-controls', '');
+                    leftColumn.appendChild(modelViewer);
+                } else {
+                    const img = document.createElement('img');
+                    img.setAttribute('src', src);
+                    img.setAttribute('alt', src);
+                    leftColumn.appendChild(img);
+                }
+            });
+        }
+    </script>
+</body>
+</html>
